@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  position: relative;
+}
+.main-color {
+  color: #4AA35A;
+}
+
+.bg-main-color {
+  background-color: #4AA35A;
+}
+
+.grey-color {
+  color: #494949;
+  opacity: 0.6;
+}
+
+.grey-color-2 {
+  color: #3A3A3D;
+}
+
+$grey-color: #3A3A3D
