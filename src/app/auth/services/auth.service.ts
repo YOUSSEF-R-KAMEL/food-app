@@ -7,9 +7,11 @@ import { jwtDecode } from 'jwt-decode';
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private http:HttpClient) { }
-
+  role:string | null = ''
+  constructor(private http:HttpClient) {
+    if(localStorage.getItem('userToken') !== null)
+    this.getProfile()
+   }
   getProfile(){
     let token:any = localStorage.getItem('userToken')
     let decode:any = jwtDecode(token)
@@ -17,20 +19,22 @@ export class AuthService {
     localStorage.setItem('userName', decode.userName)
     localStorage.setItem('email', decode.userEmail)
     console.log(decode)
+    this.getRole()
   }
-
+  getRole(){
+    if(localStorage.getItem('userToken') !== null && localStorage.getItem('role') !== null ){
+      this.role = localStorage.getItem('role')
+    }
+  }
   login(data:ILogin){
     return this.http.post("Users/Login", data)
   }
-
   register(data:FormData){
     return this.http.post("Users/Register", data)
   }
-
   ReqResPass(data:string){
     return this.http.post("Users/Reset/Request", data)
   }
-
   resPass(data:string){
     return this.http.post("Users/Reset", data)
   }

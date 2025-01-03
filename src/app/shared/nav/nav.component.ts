@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  get username() {
+    return localStorage.getItem('userName');
+  }
+
+  logout(){
+    localStorage.removeItem('userToken')
+    localStorage.removeItem('role')
+    localStorage.removeItem('userName')
+    localStorage.removeItem('email')
+
+  }
 }

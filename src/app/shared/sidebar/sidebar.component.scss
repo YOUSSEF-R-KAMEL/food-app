@@ -1,0 +1,35 @@
+.sidebar {
+  background-color: #1F263E;
+  min-height: 100vh;
+  border-radius: 0 58px 0 0;
+  -webkit-border-radius: 0 58px 0 0;
+  -moz-border-radius: 0 58px 0 0;
+  -ms-border-radius: 0 58px 0 0;
+  -o-border-radius: 0 58px 0 0;
+  .links li a {
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 15px 0 15px 80px;
+    color: #fff;
+    margin: 15px auto;
+    border-left: 4px solid #1F263E;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    &:hover,
+    &.active {
+      background-color: #00924D1A;
+      border-left: 4px solid #009247;
+    }
+    &:hover:not(.active) {
+      padding-left: 87px;
+    }
+      img {
+        margin-right: 15px;
+      }
+  }
+}

@@ -11,13 +11,11 @@
             <input type="email" class="form-control" placeholder="Enter your E-mail" formControlName="email" aria-label="email"
             >
           </div>
-
           <ng-container *ngIf="email?.dirty || email?.touched">
             <p class="text-danger" *ngIf="email?.errors?.['required']">The email is required</p>
             <p class="text-danger" *ngIf="email?.errors?.['email']">
               Email is not valid</p>
           </ng-container>
-
           <div class="input-group flex-nowrap position-relative">
             <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock grey-color"></i></span>
             <input [type]="showPassword? 'text' : 'password'" class="form-control" placeholder="Password" formControlName="password">
@@ -26,7 +24,6 @@
               class="fa-solid position-absolute grey-color"
               [class]="!showPassword ? 'fa-eye' : 'fa-eye-slash'"
               >
-
               </i>
             </span>
           </div>
