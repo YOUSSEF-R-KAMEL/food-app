@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserComponent } from './user.component';
+import { CategoriesComponent } from './categories.component';
 import { NotFoundComponent } from 'src/app/shared/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: UserComponent },
+  { path: '', component: CategoriesComponent },
   {
     path: '**',
     component: NotFoundComponent
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UserRoutingModule { }
+export class CategoriesRoutingModule { }

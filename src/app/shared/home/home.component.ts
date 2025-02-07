@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,6 @@ import { interval, Subscription } from 'rxjs';
 export class HomeComponent {
   animatedUsername: string = '';
   waveUsername: string[] = [];
-  subscription!: Subscription;
   ngOnInit(): void {
     this.prepareWaveUserName();
   }
@@ -19,6 +17,4 @@ export class HomeComponent {
   prepareWaveUserName () {
     this.waveUsername = this.userName!.split('');
   }
-
-
 }

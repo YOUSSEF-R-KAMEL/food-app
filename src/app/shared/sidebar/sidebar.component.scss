@@ -1,6 +1,8 @@
 .sidebar {
   background-color: #1F263E;
-  min-height: 100vh;
+  min-height: 100%;
+  width: 14%;
+  position: fixed;
   border-radius: 0 58px 0 0;
   -webkit-border-radius: 0 58px 0 0;
   -moz-border-radius: 0 58px 0 0;
@@ -11,7 +13,7 @@
     text-decoration: none;
     text-transform: capitalize;
     cursor: pointer;
-    padding: 15px 0 15px 80px;
+    padding: 15px 0 15px 35px;
     color: #fff;
     margin: 15px auto;
     border-left: 4px solid #1F263E;
@@ -26,10 +28,10 @@
       border-left: 4px solid #009247;
     }
     &:hover:not(.active) {
-      padding-left: 87px;
+      padding-left: 3rem;
     }
       img {
-        margin-right: 15px;
+        margin-right: 1rem;
       }
   }
 }

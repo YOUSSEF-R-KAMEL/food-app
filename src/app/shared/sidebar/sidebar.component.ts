@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from 'src/app/auth/services/auth.service';
+import { AuthService } from 'src/app/feature/auth/services/auth.service';
 
 interface IMenu {
   link: string;
@@ -41,7 +41,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      link: 'dashboard/categories',
+      link: 'dashboard/admin/categories',
       icon: 'categories',
       text: 'categories',
       isActive: this.isAdmin(),
