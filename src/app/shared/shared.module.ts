@@ -7,10 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SidebarComponent,
     NavComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DeleteDialogComponent
   ],
   imports: [
   CommonModule,
@@ -28,7 +33,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     SpinnerComponent,
@@ -40,7 +49,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatIconModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class SharedModule { }

@@ -35,7 +35,7 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      link: 'dashboard/recipes',
+      link: 'dashboard/admin/recipes',
       icon: 'recipes',
       text: 'recipes',
       isActive: this.isAdmin(),

@@ -5,6 +5,7 @@ import { NotFoundComponent } from 'src/app/shared/not-found/not-found.component'
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
+  { path: 'recipes', loadChildren: () => import('./modules/recipes/recipes.module').then(m => m.RecipesModule) },
   { path: 'categories', loadChildren: () => import('./modules/categories/categories.module').then(m => m.CategoriesModule) },
   {
     path: '**',
