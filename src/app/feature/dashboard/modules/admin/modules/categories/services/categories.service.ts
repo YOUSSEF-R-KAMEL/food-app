@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ICategory } from '../models/ICategory';
-import { IResponse } from '../models/IResponse';
+import { IResponse } from '../../../../../../../shared/models/IResponse';
 import { IUpdateCategory } from '../models/IUpdateCategory';
 
 @Injectable({

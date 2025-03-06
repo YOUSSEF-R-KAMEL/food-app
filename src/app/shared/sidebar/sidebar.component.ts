@@ -14,6 +14,7 @@ interface IMenu {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  // showSideBarCheck:boolean = true
   private readonly _authService = inject(AuthService);
   isAdmin(): boolean {
     return this._authService.role == 'SuperAdmin';
@@ -29,7 +30,7 @@ export class SidebarComponent {
       isActive: this.isAdmin() || this.isUser(),
     },
     {
-      link: 'dashboard/user',
+      link: 'dashboard/admin/users',
       icon: 'users',
       text: 'users',
       isActive: this.isAdmin(),
@@ -59,4 +60,11 @@ export class SidebarComponent {
       isActive: this.isUser(),
     }
   ];
+
+  showSideBar(){
+      document.querySelector('.sidebar')?.classList.add('active')
+  }
+  hideSideBar(){
+      document.querySelector('.sidebar')?.classList.remove('active')
+  }
 }

@@ -1,22 +1,5 @@
 <section class="categories me-4">
-  <div class="row header-row align-items-center px-3 py-3">
-    <div class="col-md-8">
-      <div class="categories-header ps-md-4 pt-sm-3">
-        <h2 class="text-start">
-          <span class="wave-container">
-            <span *ngFor="let char of waveUsername; let i = index" class="wave-char"
-              [style.animationDelay]="i * 0.1 + 's'">
-              {{ char }}
-            </span>
-          </span>
-        </h2>
-        <p>You can now add your items that any user can order it from the Application and you can edit</p>
-      </div>
-    </div>
-    <div class="col-md-4 text-end">
-      <img class="categories-image" src="../../../assets/images/categories/categories.svg" alt="categories picture">
-    </div>
-  </div>
+  <app-header headerTitle="Categories"></app-header>
   <div class="details">
     <div class="row">
       <div class="col-md-8">
@@ -29,7 +12,12 @@
     </div>
   </div>
   <div class="table-responsive">
-    <input type="text" class="form-control mb-2" [(ngModel)]="searchVal" (keyup)="getAllCategories()">
+    <!-- input search -->
+    <mat-form-field class="filter-input">
+      <mat-label>Filter</mat-label>
+      <input type="text" matInput [(ngModel)]="searchVal" (keyup)="getAllCategories()" placeholder="Ex. Pizza">
+    </mat-form-field>
+
     <table class="table">
       <thead>
         <tr>
@@ -40,11 +28,10 @@
         </tr>
       </thead>
       <tbody>
-
         <tr *ngFor="let category of categories; let isEven = even" [ngClass]="isEven ? 'bg-white' : 'bg-light'">
           <td>{{category.name}}</td>
-          <td>{{category.creationDate | date: 'mm/dd/yyyy'}}</td>
-          <td>{{category.modificationDate | date: 'mm/dd/yyyy'}}</td>
+          <td>{{category.creationDate | date: 'MM/dd/yyyy'}}</td>
+          <td>{{category.modificationDate | date: 'MM/dd/yyyy'}}</td>
           <td>
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
               <mat-icon>more_horiz</mat-icon>

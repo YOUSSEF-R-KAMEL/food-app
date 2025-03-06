@@ -3,10 +3,6 @@ nav {
   padding: 5px 75px;
   background-color: #F8F9FB;
   border-radius: 16px;
-  -webkit-border-radius: 16px;
-  -moz-border-radius: 16px;
-  -ms-border-radius: 16px;
-  -o-border-radius: 16px;
   .dropdown-menu {
     width: 12rem;
     li a {
@@ -14,10 +10,6 @@ nav {
       border-left: 4px solid #FFF;
       margin-bottom: 7px;
       transition: 0.3s;
-      -webkit-transition: 0.3s;
-      -moz-transition: 0.3s;
-      -ms-transition: 0.3s;
-      -o-transition: 0.3s;
       &:hover {
         padding-left: 1.4rem;
         background-color: #eee;

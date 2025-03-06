@@ -15,6 +15,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +28,11 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     NavComponent,
     HomeComponent,
     NotFoundComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    HeaderComponent
   ],
   imports: [
-  CommonModule,
+    CommonModule,
     RouterModule,
     ReactiveFormsModule,
     MatMenuModule,
@@ -37,13 +43,17 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
+    NgxDropzoneModule,
   ],
   exports: [
-    SpinnerComponent,
-    SidebarComponent,
+    CommonModule,
     NavComponent,
-    HomeComponent,
+    SidebarComponent,
+    SpinnerComponent,
+    RouterModule,
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
@@ -51,9 +61,13 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     MatPaginatorModule,
     FormsModule,
     MatDialogModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    MatDividerModule,
+    NgxDropzoneModule,
+    HeaderComponent,
   ]
 })
 export class SharedModule { }

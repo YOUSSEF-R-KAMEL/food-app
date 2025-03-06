@@ -9,16 +9,21 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class GlobalInterceptor implements HttpInterceptor {
+  baseUrl = "https://upskilling-egypt.com:3006/api/v1/"
   constructor() {}
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const baseUrl = "https://upskilling-egypt.com:3006/api/v1/";
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('userToken')
     let newReq = request.clone ({
-      url: baseUrl + request.url,
+      url: this.baseUrl + request.url,
       setHeaders: {
         "Authorization": `${token}`
       }
     })
     return next.handle(newReq);
+  }
+
+
+  getBaseUrl(): string {
+    return this.baseUrl
   }
 }

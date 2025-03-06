@@ -22,6 +22,8 @@
     }
   }
   .home-image {
+    text-align: right;
+    width: 20rem;
     animation: fade 1.5s infinite ease-in-out;
     -webkit-animation: fade 1.5s infinite ease-in-out;
   }
@@ -30,10 +32,6 @@
   padding: 35px;
   background-color: #F0FFEF;
   border-radius: 35px;
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  -ms-border-radius: 35px;
-  -o-border-radius: 35px;
 }
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
@@ -58,17 +56,9 @@
 @keyframes fade {
   0%, 100% {
     transform: translate(0);
-    -webkit-transform: translate(0);
-    -moz-transform: translate(0);
-    -ms-transform: translate(0);
-    -o-transform: translate(0);
   }
   50% {
   transform: translateY(10px);
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
 }
 }
 

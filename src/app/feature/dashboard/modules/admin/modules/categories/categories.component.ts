@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CategoriesService } from './services/categories.service';
 import { ICategory } from './models/ICategory';
-import { IResponse } from './models/IResponse';
+import { IResponse } from '../../../../../../shared/models/IResponse';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -15,8 +15,6 @@ import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialo
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
-  animatedUsername: string = '';
-  waveUsername: string[] = [];
   categories: ICategory[] = [];
   pageSize:number = 10
   pageNumber:number = 1
@@ -32,12 +30,9 @@ export class CategoriesComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.prepareWaveUserName();
     this.getAllCategories()
   }
-  prepareWaveUserName () {
-    this.waveUsername ='Categories'.split('');
-  }
+
   getAllCategories(){
     let tableParams = {
       name: this.searchVal,
@@ -69,7 +64,6 @@ export class CategoriesComponent implements OnInit {
     const dialogRef = this.dialog.open(AddEditViewCategoryComponent, {
       data: { category, type: dialogType },
     });
-
     dialogRef.afterClosed().subscribe((result: IDialogData) => {
       if(result?.category?.name){
         switch(dialogType){

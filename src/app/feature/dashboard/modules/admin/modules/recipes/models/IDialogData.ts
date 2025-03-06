@@ -1,6 +1,6 @@
 import { IRecipes } from "./IRecipes";
 
 export interface IDialogData {
-  category: IRecipes,
+  recipes: IRecipes,
   type: string
 }

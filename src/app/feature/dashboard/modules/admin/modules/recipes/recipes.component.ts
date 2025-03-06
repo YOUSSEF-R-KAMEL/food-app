@@ -6,8 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { IDialogData } from './models/IDialogData';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
-import { AddEditViewRecipesComponent } from './components/add-edit-view-recipes/add-edit-view-recipes.component';
 import { RecipesService } from './services/recipes.service';
+import { ViewRecipesComponent } from './components/view-recipes/view-recipes.component';
 
 @Component({
   selector: 'app-recipes',
@@ -15,44 +15,74 @@ import { RecipesService } from './services/recipes.service';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  waveUsername: string[] = [];
-  recipes: IRecipes[] = [];
   pageSize:number = 10
   pageNumber:number = 1
   tableResponse?:IResponse<IRecipes[]>
   pageEvent?: PageEvent;
   resName:string = ''
   searchVal:string = ''
-
+  tagId = 0
+  catId = 0
+  baseUrl = 'https://upskilling-egypt.com:3006/';
+  tagList:any = []
+  categoriesList:any = []
   constructor(
     private _recipesService:RecipesService,
     public dialog: MatDialog,
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
   ){}
 
   ngOnInit(): void {
-    this.prepareWaveUserName();
     this.getAllRecipes()
+    this.getTags();
+    this.getCategories();
   }
-  prepareWaveUserName () {
-    this.waveUsername ='Recipes'.split('');
+  
+  getTags(){
+    this._recipesService.getTags().subscribe({
+      next: (res) => {
+        this.tagList = res
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+  getCategories(){
+    this._recipesService.getCategories().subscribe({
+      next: (res:any) => {
+        this.categoriesList = res.data
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
   getAllRecipes(){
     let tableParams = {
       name: this.searchVal,
       pageNumber: this.pageNumber,
       pageSize: this.pageSize,
+      tagId: this.tagId,
+      categoryId: this.catId,
     }
     this._recipesService.getAllRecipes(tableParams).subscribe({
       next: (res:IResponse<IRecipes[]>) => {
-        this.recipes = res.data
         this.tableResponse = res
-        console.log(this.recipes)
+        this.tableResponse.data.forEach((item) => {
+          item.imagePath = item.imagePath ? this.baseUrl + item.imagePath : ""
+        })
       },
       error: (err) => {
         console.log(err)
       }
     })
+  }
+  clearFilter(){
+    this.searchVal = ''
+    this.catId= 0
+    this.tagId = 0
+    this.getAllRecipes()
   }
   // paginator
   handlePageEvent(e: PageEvent) {
@@ -60,58 +90,29 @@ export class RecipesComponent implements OnInit {
     this.pageNumber = e.pageIndex;
     this.getAllRecipes();
   }
-  // search by name
-  searchByCategoryName(e:any){
-    this.searchVal = e.target.value
-  }
-
-  openDialog(category :IRecipes | null, dialogType:string){
-    const dialogRef = this.dialog.open(AddEditViewRecipesComponent, {
-      data: { category, type: dialogType },
+  openViewDialog(recipe:IRecipes){
+    const dialogRef = this.dialog.open(ViewRecipesComponent, {
+      data: { recipe },
     });
 
     dialogRef.afterClosed().subscribe((result: IDialogData) => {
-      if(result?.category?.name){
-        switch(dialogType){
-          case 'Add':
-            this._recipesService.addRecipe(result.category.name).subscribe({
-              next: () => this.resName = result.category.name,
-              error: () => this._toastr.error('Please make sure to enter the category name correctly ', 'Error'),
-              complete: () => {
-                this._toastr.success(this.resName + ' category added successfully')
-                this.getAllRecipes()
-              }
-            })
-            break;
-          case 'Update':
-              console.log(result.category.name);
-              this._recipesService.updateRecipe(result.category.name, result.category.id).subscribe({
-                next: (res) => this.resName = result.category.name,
-                error: (err) => this._toastr.error('Please make sure to enter the category name correctly ', 'Error'),
-                complete: () => {
-                  this._toastr.success(this.resName + ' category Updated successfully')
-                  this.getAllRecipes()
-                }
-              })
-              break;
-        }
-      }
+      console.log(result)
     });
   }
 
-  openDeleteDialog(category :IRecipes){
+  openDeleteDialog(recipes :IRecipes){
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {cat: category, type: "Category"},
+      data: {cat: recipes, type: "recipes"},
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(category)
+      console.log(recipes)
       if(result?.action === 'delete'){
-        this._recipesService.deleteRecipe(category.id).subscribe({
-          next: () => this.resName = category.name,
-          error: () => this._toastr.error('Please make sure to enter the category name correctly ', 'Error'),
+        this._recipesService.deleteRecipe(recipes.id).subscribe({
+          next: () => this.resName = recipes.name,
+          error: () => this._toastr.error('Please make sure to enter the recipes name correctly ', 'Error'),
           complete: () => {
-            this._toastr.success(this.resName + ' category deleted successfully')
+            this._toastr.success(this.resName + ' recipes deleted successfully')
             this.getAllRecipes()
           }
         })
