@@ -8,6 +8,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   role:string | null = ''
+  // id = 0
   constructor(private http:HttpClient) {
     if(localStorage.getItem('userToken') !== null)
     this.getProfile()
@@ -18,8 +19,9 @@ export class AuthService {
     localStorage.setItem('role', decode.userGroup)
     localStorage.setItem('userName', decode.userName)
     localStorage.setItem('email', decode.userEmail)
-    console.log(decode)
+    // this.id = decode.userId
     this.getRole()
+    return decode
   }
   getRole(){
     if(localStorage.getItem('userToken') !== null && localStorage.getItem('role') !== null ){

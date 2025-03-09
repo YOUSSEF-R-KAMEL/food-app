@@ -20,6 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HeaderComponent } from './header/header.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     NotFoundComponent,
     DeleteDialogComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

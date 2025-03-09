@@ -22,7 +22,7 @@
         <p>you can now fill the meals easily using the table and form , click here and sill it with the table !</p>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-end">
-        <button routerLink="/dashboard/admin/recipes"
+        <button [routerLink]="role == 'SystemUser' ? '/dashboard/user/user-recipe' : '/dashboard/admin/recipes'"
           class="button main-btn d-flex justify-content-center gap-3 align-items-center py-2 px-sm-3">
           <span>Fill Recipes</span>
           <i class="fa fa-arrow-right"></i></button>

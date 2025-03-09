@@ -48,13 +48,13 @@ export class SidebarComponent {
       isActive: this.isAdmin(),
     },
     {
-      link: 'dashboard/user-recipes',
+      link: 'dashboard/user/user-recipe',
       icon: 'recipes',
-      text: 'user recipes',
+      text: 'user recipe',
       isActive: this.isUser(),
     },
     {
-      link: 'dashboard/favorites',
+      link: 'dashboard/user/favorites',
       icon: 'fav',
       text: 'favorites',
       isActive: this.isUser(),

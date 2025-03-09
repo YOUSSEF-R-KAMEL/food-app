@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from 'src/app/shared/home/home.component';
 import { adminGuard } from 'src/app/core/guards/admin.guard';
+import { ProfileComponent } from 'src/app/shared/profile/profile.component';
+import { ChangePasswordComponent } from 'src/app/shared/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,14 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/user/user.module').then((m) => m.UserModule),
       },
+      {
+        path: "profile",
+        component: ProfileComponent
+      },
+      {
+        path: "change-password",
+        component: ChangePasswordComponent
+      }
     ],
   },
 ];

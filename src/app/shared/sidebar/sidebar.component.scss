@@ -53,12 +53,19 @@
       width: 6rem;
     }
     .links li a {
+      color: #fff !important;
       padding: 15px 0 15px 25px;
+      font-size: 14px;
       &:hover:not(.active) {
         padding-left: 2rem;
+        color: #fff !important;
         span {
           display: none;
         }
+      }
+      img {
+        width: 18px;
+        margin-right: .5rem;
       }
     }
   }

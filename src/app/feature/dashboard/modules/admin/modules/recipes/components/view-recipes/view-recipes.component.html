@@ -4,13 +4,17 @@
     <h3 class="view-title">{{data.recipe.name}} </h3>
     <mat-icon class="closeIcon" (click)="closeDialog()">close</mat-icon>
   </div>
-  <img [src]="data.recipe.imagePath ? data.recipe.imagePath : '../../../../../../../../../assets/images/logo/sidebar-logo.svg'" alt="">
+  <img [src]="data.recipe.imagePath ? data.recipe.imagePath : 'assets/images/logo/sidebar-logo.svg'" alt="">
   <p class="view-desc">{{data.recipe.description}}</p>
   <p class="view-tag mb-1">Tag: <strong>{{data.recipe.tag.name}}</strong></p>
   <div class="view-category">
-    <p *ngFor="let category of data.recipe.category">
-      category: <strong>{{category.name}}</strong>
-    </p>
+    category:
+    <span *ngFor="let category of data.recipe.category; let last = last">
+      <strong>{{category.name}}{{last ? '' : ', '}} </strong>
+    </span>
   </div>
   <p class="view-price">{{data.recipe.price}}$</p>
+  <div class="favorite" *ngIf="data.showFav" (click)="addFavorites(data.recipe.id)">
+    <button>Add to favorite</button>
+  </div>
 </section>

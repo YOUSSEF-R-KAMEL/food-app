@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { IRecipes } from './models/IRecipes';
-import { IResponse } from './models/IResponse';
-import { PageEvent } from '@angular/material/paginator';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ToastrService } from 'ngx-toastr';
-import { IDialogData } from './models/IDialogData';
-import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
-import { RecipesService } from './services/recipes.service';
-import { ViewRecipesComponent } from './components/view-recipes/view-recipes.component';
+import { PageEvent } from '@angular/material/paginator';
+import { IResponse } from 'src/app/shared/models/IResponse';
+import { ViewRecipesComponent } from '../../../admin/modules/recipes/components/view-recipes/view-recipes.component';
+import { IDialogData } from '../../../admin/modules/recipes/models/IDialogData';
+import { IRecipes } from '../../../admin/modules/recipes/models/IRecipes';
+import { RecipesService } from '../../../admin/modules/recipes/services/recipes.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
-  selector: 'app-recipes',
-  templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  selector: 'app-user-recipe',
+  templateUrl: './user-recipe.component.html',
+  styleUrls: ['./user-recipe.component.scss']
 })
-export class RecipesComponent implements OnInit {
-  pageSize:number = 10
+export class UserRecipeComponent {
+
+pageSize:number = 10
   pageNumber:number = 1
   tableResponse?:IResponse<IRecipes[]>
   pageEvent?: PageEvent;
@@ -24,13 +23,12 @@ export class RecipesComponent implements OnInit {
   searchVal:string = ''
   tagId = 0
   catId = 0
-  baseUrl = environment.baseUrl ;
+  baseUrl = environment.baseUrl
   tagList:any = []
   categoriesList:any = []
   constructor(
     private _recipesService:RecipesService,
     public dialog: MatDialog,
-    private _toastr: ToastrService,
   ){}
 
   ngOnInit(): void {
@@ -93,32 +91,11 @@ export class RecipesComponent implements OnInit {
   }
   openViewDialog(recipe:IRecipes){
     const dialogRef = this.dialog.open(ViewRecipesComponent, {
-      data: { recipe },
+      data: { recipe, showFav: true },
     });
 
     dialogRef.afterClosed().subscribe((result: IDialogData) => {
       console.log(result)
     });
   }
-
-  openDeleteDialog(recipes :IRecipes){
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {cat: recipes, type: "recipes"},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(recipes)
-      if(result?.action === 'delete'){
-        this._recipesService.deleteRecipe(recipes.id).subscribe({
-          next: () => this.resName = recipes.name,
-          error: () => this._toastr.error('Please make sure to enter the recipes name correctly ', 'Error'),
-          complete: () => {
-            this._toastr.success(this.resName + ' recipes deleted successfully')
-            this.getAllRecipes()
-          }
-        })
-      }
-    });
-  }
 }
-

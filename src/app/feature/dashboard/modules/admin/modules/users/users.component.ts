@@ -7,6 +7,7 @@ import { IUsers } from './models/IUsers';
 import { UsersService } from './services/users.service';
 import { ViewUserComponent } from './components/view-user/view-user.component';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,7 @@ export class UsersComponent {
   pageEvent?: PageEvent;
   userName:string = ''
   searchVal:string = ''
-  baseUrl = 'https://upskilling-egypt.com:3006/';
+  baseUrl = environment.baseUrl ;
 
     constructor(
       private _usersService:UsersService,

@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RecipesService } from './../../services/recipes.service';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-add-edit-recipes',
@@ -17,11 +18,12 @@ export class AddEditRecipesComponent {
   fileTouched = false;
   files: File[] = [];
   recipeId = 0
-  baseUrl = 'https://upskilling-egypt.com:3006/';
+  baseUrl = environment.baseUrl ;
   constructor(private fb: FormBuilder,
               private _recipesService:RecipesService,
               private toastr:ToastrService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private router: Router
             ) {
     this.recipeForm = this.fb.group({
       name: ['', Validators.required],
@@ -83,6 +85,9 @@ export class AddEditRecipesComponent {
           },
           error: (err) => {
             this.toastr.error('Error adding recipe')
+          },
+          complete: () =>{
+            this.router.navigate(['/dashboard/admin/recipes'])
           }
         });
       }
