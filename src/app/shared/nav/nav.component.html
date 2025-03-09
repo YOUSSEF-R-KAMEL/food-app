@@ -2,7 +2,7 @@
   <div class="search"></div>
   <div class="dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <img class="me-3" src="assets/images/home/user-icon.svg" alt="user">
+      <img class="me-3" [src]=" profileImage ? profileImage :  'assets/images/home/user-icon.svg'" alt="user">
       {{username}}
     </a>
     <ul class="dropdown-menu dropdown-menu">
