@@ -12,17 +12,14 @@ import { environment } from 'src/environments/environment.development';
 })
 export class NavComponent {
 
-  user!:IProfile
   profileImage = ''
   baseUrl = environment.baseUrl
   constructor(private profileService: ProfileService,
-    private toast: ToastrService,
-    private authService: AuthService) {
+    private toast: ToastrService) {
   }
   ngOnInit(): void {
     this.profileService.getUserProfile().subscribe({
       next: (user: IProfile) => {
-        this.user = user;
         this.profileImage = this.baseUrl + user.imagePath;
       },
       error: (err) => {
