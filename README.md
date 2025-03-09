@@ -53,14 +53,8 @@ http://localhost:4200
 ## 🔥 API Endpoints
 Ensure the backend is running and update the **API base URL** in `environment.ts`.
 
-## 🖼️ Screenshots
-_(Include relevant screenshots of your app here)_
-
 ## 🤝 Contribution
 Feel free to fork the repo, create a new branch, and submit a pull request.
-
-## 📜 License
-MIT License – [Read More](LICENSE)
 
 ---
 
