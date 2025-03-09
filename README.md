@@ -1,27 +1,68 @@
-# FoodApp
+# 🍽️ Food App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## 🚀 Overview
+Food App is a modern and user-friendly web application built with **Angular** that allows users to browse, search, and manage their favorite meals. The app provides an intuitive interface, authentication features, and a seamless experience for food lovers.
 
-## Development server
+## 🎯 Features
+- ✅ **User Authentication** – Sign up, log in, and manage user profiles.
+- ✅ **Browse & Search** – Discover a variety of meals with a search functionality.
+- ✅ **Favorites Management** – Add and remove meals from favorites.
+- ✅ **Responsive Design** – Works across all devices with a sleek UI.
+- ✅ **Profile Management** – Update user information and profile images.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Tech Stack
+- **Frontend:** Angular, TypeScript, SCSS
+- **State Management:** RxJS
+- **UI Framework:** Bootstrap, ngx-toastr
+- **Backend:** Node.js (Assumed), REST API
+- **Authentication:** JWT
 
-## Code scaffolding
+## 📂 Project Structure
+```
+food-app/
+│── src/
+│   ├── app/
+│   │   ├── core/          # Core modules & services
+│   │   ├── feature/       # Feature modules (e.g., auth, profile, favorites)
+│   │   ├── shared/        # Shared components & utilities
+│   │   ├── environments/  # Environment configurations
+│── angular.json           # Angular project configuration
+│── package.json           # Dependencies & scripts
+│── README.md              # Project documentation
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ⚙️ Installation & Setup
+1️⃣ Clone the repository:
+```bash
+git clone https://github.com/YOUSSEF-R-KAMEL/food-app.git
+cd food-app
+```
+2️⃣ Install dependencies:
+```bash
+npm install
+```
+3️⃣ Run the development server:
+```bash
+ng serve
+```
+4️⃣ Open in browser:
+```
+http://localhost:4200
+```
 
-## Build
+## 🔥 API Endpoints
+Ensure the backend is running and update the **API base URL** in `environment.ts`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🖼️ Screenshots
+_(Include relevant screenshots of your app here)_
 
-## Running unit tests
+## 🤝 Contribution
+Feel free to fork the repo, create a new branch, and submit a pull request.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📜 License
+MIT License – [Read More](LICENSE)
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**🌟 Don't forget to star the repo if you like it!** ⭐
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
