@@ -100,6 +100,9 @@ export class AddEditRecipesComponent {
           },
           error: (err) => {
             this.toastr.error('Error Updated recipe')
+          },
+          complete: () =>{
+            this.router.navigate(['/dashboard/admin/recipes'])
           }
         });
       }
