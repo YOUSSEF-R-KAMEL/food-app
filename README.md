@@ -30,14 +30,3 @@ food-app/
 │── package.json           # Dependencies & scripts
 │── README.md              # Project documentation
 ```
-
-## 🔥 API Endpoints
-Ensure the backend is running and update the **API base URL** in `environment.ts`.
-
-## 🤝 Contribution
-Feel free to fork the repo, create a new branch, and submit a pull request.
-
----
-
-**🌟 Don't forget to star the repo if you like it!** ⭐
-
