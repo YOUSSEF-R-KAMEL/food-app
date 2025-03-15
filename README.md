@@ -31,25 +31,6 @@ food-app/
 │── README.md              # Project documentation
 ```
 
-## ⚙️ Installation & Setup
-1️⃣ Clone the repository:
-```bash
-git clone https://github.com/YOUSSEF-R-KAMEL/food-app.git
-cd food-app
-```
-2️⃣ Install dependencies:
-```bash
-npm install
-```
-3️⃣ Run the development server:
-```bash
-ng serve
-```
-4️⃣ Open in browser:
-```
-http://localhost:4200
-```
-
 ## 🔥 API Endpoints
 Ensure the backend is running and update the **API base URL** in `environment.ts`.
 
