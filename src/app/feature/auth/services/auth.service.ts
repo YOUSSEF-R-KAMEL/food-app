@@ -34,6 +34,9 @@ export class AuthService {
   register(data:FormData){
     return this.http.post("Users/Register", data)
   }
+  verifyAccount(data:FormData){
+    return this.http.put("Users/verify", data)
+  }
   ReqResPass(data:string){
     return this.http.post("Users/Reset/Request", data)
   }

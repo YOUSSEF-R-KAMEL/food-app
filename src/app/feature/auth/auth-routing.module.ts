@@ -4,6 +4,7 @@ import { AuthComponent } from './auth.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { VerifyAcountComponent } from './components/verify-acount/verify-acount.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "login", pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'request-password', component: RequestResetPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'verify-account', component: VerifyAcountComponent },
 ]
 
 @NgModule({

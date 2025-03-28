@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterComponent {
   private readonly fb = inject(FormBuilder)
   private readonly _authService = inject(AuthService)
   private readonly toastr = inject(ToastrService)
+  private readonly _router = inject(Router)
   constructor(){
     this.registerForm = this.fb.group({
       profileImage : [null],
@@ -64,6 +66,8 @@ export class RegisterComponent {
       },
       complete: () => {
         this.toastr.success(this.resMsg,'Successfully')
+        localStorage.setItem('email', this.registerForm.get('email')?.value)
+        this._router.navigateByUrl('/auth/verify-account')
       }
     })
   }
