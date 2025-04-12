@@ -42,7 +42,7 @@ export class ResetPasswordComponent {
       complete: () => {
         localStorage.removeItem('email')
         this.toastr.success(this.resMsg,'Successfully')
-        this.router.navigateByUrl('home')
+        this.router.navigateByUrl('/dashboard/home')
       }
     })
   }
